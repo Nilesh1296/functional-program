@@ -1,74 +1,41 @@
+/******************************************************************************
+  
+ *  Purpose: Print the Calendar of the given month and year
+ *
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   08-03-2018
+ *
+ ******************************************************************************/
+
 package com.bridgeit.datastructure;
-
-
 
 import com.bridgeit.utility.Utility;
 
-public class Calendar1 { 
+public class Calendar1 {
 
-   /***************************************************************************
-    *  Given the month, day, and year, return which day
-    *  of the week it falls on according to the Gregorian calendar.
-    *  For month, use 1 for January, 2 for February, and so forth.
-    *  Returns 0 for Sunday, 1 for Monday, and so forth.
-    ***************************************************************************/
-    public static int day(int month, int day, int year) {
-        int y = year - (14 - month) / 12;
-        int x = y + y/4 - y/100 + y/400;
-        int m = month + 12 * ((14 - month) / 12) - 2;
-        int d = (day + x + (31*m)/12) % 7;
-        return d;
-    }
+	public static void main(String[] args) {
+		Utility utility = new Utility();
+		System.out.println("Enter the month");
+		int month = utility.inputInteger();
+		System.out.println("Enter the year");
+		int year = utility.inputInteger();
 
-    // return true if the given year is a leap year
-    public static boolean isLeapYear(int year) {
-        if  ((year % 4 == 0) && (year % 100 != 0)) return true;
-        if  (year % 400 == 0) return true;
-        return false;
-    }
+		String[] months = { "", "January", "February", "March", "April", "May", "June", "July", "August", "September",
+				"October", "November", "December" };
 
-    public static void main(String[] args)
-    {
-      Utility utility = new Utility();
-        System.out.println("Enter the month");
-        int month =utility.inputInteger();
-        System.out.println("Enter the year");
-        int year = utility.inputInteger();
-        // months[i] = name of month i
-        String[] months = {
-            "",                               // leave empty so that months[1] = "January"
-            "January", "February", "March",
-            "April", "May", "June",
-            "July", "August", "September",
-            "October", "November", "December"
-        };
+		int[] days = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		boolean status = Utility.isLeapYear(year);
+		if (month == 2 && status) {
+			days[month] = 29;
+		}
 
-        // days[i] = number of days in month i
-        int[] days = {
-            0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-        };
+		System.out.println("   " + months[month] + " " + year);
+		System.out.println(" S  M Tu  W Th  F  S");
 
-        // check for leap year
-        if (month == 2 && isLeapYear(year)) days[month] = 29;
+		int d = Utility.day(month, 1, year);
 
+		Utility.print(d, month);
+	}
 
-        // print calendar header
-        System.out.println("   " + months[month] + " " + year);
-        System.out.println(" S  M Tu  W Th  F  S");
-
-        // starting day
-        int d = day(month, 1, year);
-
-        // print the calendar
-        for (int i = 0; i < d; i++)
-            System.out.print("   ");
-        for (int i = 1; i <= days[month]; i++) {
-            System.out.printf("%2d ", i);
-            if (((i + d) % 7 == 0) || (i == days[month])) 
-            	System.out.println();
-        }
-
-    }
 }
-
-

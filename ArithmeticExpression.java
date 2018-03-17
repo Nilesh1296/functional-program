@@ -1,3 +1,13 @@
+/******************************************************************************
+  
+ *  Purpose: Determines the arithmetic equation is balanced
+ *
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   08-03-2018
+ *
+ ******************************************************************************/
+
 package com.bridgeit.datastructure;
 
 import java.util.Stack;
@@ -23,10 +33,6 @@ public class ArithmeticExpression {
 		} else {
 			System.out.println("Arithematic Expression is not Balanced.");
 		}
-		
+
 	}
 }
-/*
- * Stack<String> stack=new Stack<String>(expression.length()); char
- * chararray[]=expression.toCharArray();
- */

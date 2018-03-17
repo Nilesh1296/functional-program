@@ -34,9 +34,8 @@ public class UnOrderedlist {
 		System.out.println("Enter the searchword to be found");
 		String searchWord = utility.inputString();
 		boolean status = ll.search(searchWord);
-		System.out.print(status + " ");
-
 		Utility.addRemove(status, searchWord, ll);
+		
 		ll.display();
 		Utility.readFile(ll, searchWord);
 		bufferedReader.close();

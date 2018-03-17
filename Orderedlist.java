@@ -51,13 +51,13 @@ public class Orderedlist {
 			ll.add(array[i]);
 		}
 		System.out.println("Enter the number to be search");
-		String searchNumber = utility.inputString();
+		int searchNumber = utility.inputInteger();
 		boolean status=ll.search(searchNumber);
 		System.out.print(status+" ");
 
-	    Utility.addRemove(status, searchNumber,ll);
+	    Utility.addRemove1(status, searchNumber,ll);
 	    ll.display();
-	    Utility.readFile(ll, searchNumber);
+	    Utility.readFile(ll,searchNumber);
 	    buffer.close();
 	}
 		

@@ -1,27 +1,36 @@
+/******************************************************************************
+  
+ *  Purpose: Determines the whether given String are palindrome are not using 
+ *  queue
+ *  order
+ *
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   27-02-2018
+ *
+ ******************************************************************************/
+
 package com.bridgeit.datastructure;
 
 import com.bridgeit.utility.Utility;
 
 public class PalindromeUsingDeque {
+	
+
 	public static void main(String[] args) {
-
 		Utility utility = new Utility();
-
-		System.out.println("Enter to check palindrome or not");
+		System.out.println("Program Started ");
+		System.out.println("Please Enter the String ");
 		String string = utility.inputString();
-		char[] ch = string.toCharArray();
-		Dequeue deque = new Dequeue();
-		for (int i = 0; i < ch.length; i++) {
-			deque.insertAtFront(ch[i]);
+		boolean status = Utility.check(string);
+		if (status)
+		{
+			System.out.println("This String is Palindrome");
+		} else 
+		{
+			System.out.println("This String is not Palindrome");
 		}
-		deque.display();
-
-		if (string.equals(deque.display())) {
-			System.out.println("Palindrome ");
-		} else {
-			System.out.println("not a palindrome ");
-		}
-
-		System.out.println("Thank you");
+		System.out.println("Program Ended ");
 	}
+
 }

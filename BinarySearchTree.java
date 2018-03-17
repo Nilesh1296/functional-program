@@ -1,5 +1,15 @@
-package com.bridgeit.datastructure;
+/******************************************************************************
+  
+ *  Purpose: Determines the number of node of a binary tree
+ *
+ *  @author  Nilesh singh
+ *  @version 1.0
+ *  @since   08-03-2018
+ *
+ ******************************************************************************/
 
+
+package com.bridgeit.datastructure;
 import com.bridgeit.utility.Utility;
 
 public class BinarySearchTree 
